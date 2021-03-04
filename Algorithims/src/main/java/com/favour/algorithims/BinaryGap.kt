@@ -1,33 +1,42 @@
 package com.favour.algorithims
 
-import com.google.gson.Gson
 
 class BinaryGap {
 
-    companion object {
     fun  solution (N:Int):Int{
 
+        //Stores the index of the position of the first 1
         var tempOne =0
+        //Number  of Zeros between two 1s
         var binaryGap =0
 
+
+
+        //Generate the binary equivalent for a given integer
         val integerToBinary = Integer.toBinaryString(N)
 
-        System.out.println("integerToBinary $integerToBinary")
+        //Convert the strings of binary numbers to a list
+        val binaryList = integerToBinary.split("","")
 
-        val binaryArray = integerToBinary.split("","")
+        //Iterate through the binaryList
+        binaryList.forEachIndexed { index, element ->
 
+            //Check if the number is equal to 1
+            if (element == ONE) {
 
-        binaryArray.forEachIndexed { index, element ->
-
-            if (element=="1") {
+                //Added 1 to the index to make sure the position begins from 1
               var position =index+1
 
-                val  numberofZeros= position - (tempOne+1)
 
+                //Inorder to get the number of Zeros  1 was added to tempOne 1 to include the last value (which will be 1) in the subtraction
+                val  numberOfZeros= position - (tempOne+1)
+
+                //Make the new position of tempOne be the last position of 1 gotten.
                 tempOne =index+1
 
-                if(binaryGap < numberofZeros )
-                    binaryGap = numberofZeros
+                //check if the new numberOfZeros is greater than the existing binaryGap if true make replace binaryGap variable with the numberOfZeros variable
+                if(binaryGap < numberOfZeros )
+                    binaryGap = numberOfZeros
             }
 
         }
@@ -38,60 +47,9 @@ class BinaryGap {
 
     }
 
-
-
-        @JvmStatic
-        fun main(args: Array<String>) {
-            val binaryGap = solution(1041)
-
-            System.out.println("binaryGap $binaryGap")
-
-
-        }
+    companion object {
+         const val ONE :String  ="1"
+    }
 
 
 }
-}
-
-
-//fun  solution (N:Int):Int{
-//
-//    var tempOne =0
-//    var binaryGap =0
-//
-//    val integerToBinary = Integer.toBinaryString(N)
-//
-//    System.out.println("integerToBinary $integerToBinary")
-//
-//    val binaryArray = integerToBinary.map { it.toString() }.toTypedArray()
-//
-//
-//    binaryArray.forEachIndexed { index, element ->
-//
-//        if (tempOne == 0 && element =="1"){
-//
-//            tempOne =index+1
-//        }else if (element=="1") {
-//
-//            val  numberofZeros= index+1 - (tempOne+1)
-//
-//            tempOne =index+1
-//
-//            if(binaryGap < numberofZeros )
-//                binaryGap = numberofZeros
-//        }
-//
-//    }
-//
-//
-//    return binaryGap
-//
-//
-//}
-//
-//fun main() {
-//
-//    val binaryGap = solution(1041)
-//
-//    System.out.println("binaryGap $binaryGap")
-//}
