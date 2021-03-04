@@ -3,7 +3,46 @@ package com.favour.algorithims
 
 class BinaryGap {
 
-    fun  solution (N:Int):Int{
+
+    fun startProgram(){
+        print(" \n Enter a number : ")
+
+//        print("After entering the number press \"Enter\" to generate result ")
+
+
+        readLine()?.let { number ->
+
+            try {
+                number.toIntOrNull()?.let { num ->
+                    val binaryGap = solution(num)
+                    displayResult(number, binaryGap)
+
+                }?: kotlin.run {
+                    print("Oh no... \n  please enter a valid number\n")
+
+                }
+
+            } catch (e:Throwable){
+                print("Something went wrong... \n Please try again  ")
+            }
+
+        } ?: print("Oh No.. \n Your input is Invalid, please try again")
+    }
+
+
+
+    private fun displayResult(input: String, gap: Int?) {
+        gap?.let {
+            print(
+                    "$input has $it Gap(s)\n\n"
+            )
+        }
+    }
+
+
+
+    //This is the Actual solution need for evaluation
+    private fun  solution (N:Int):Int{
 
         //Stores the index of the position of the first 1
         var tempOne =0
