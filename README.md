@@ -17,5 +17,4 @@
 ### Note : 
     The core Algorithim is in the file named "BinaryGap" (precisely the method named "Solution") in the app folder. 
 
-[.](/app/Capture.PNG "Overview of the project on Android studio")](https://github.com/FAVOUR/Algorithims/blob/master/app/Capture.PNG)
-
+![Overview of the project on Android studio](./app/Capture.PNG)
