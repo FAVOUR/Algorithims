@@ -7,9 +7,6 @@ package com.favour.algorithims
     fun startProgram(){
         print(" \n Enter a number : ")
 
-//        print("After entering the number press \"Enter\" to generate result ")
-
-
         readLine()?.let { number ->
 
             try {
@@ -50,7 +47,6 @@ package com.favour.algorithims
         var binaryGap =0
 
 
-
         //Generate the binary equivalent for a given integer
         val integerToBinary = Integer.toBinaryString(N)
 
@@ -75,7 +71,7 @@ package com.favour.algorithims
 
 
                 //Make the new position of tempOne be the last position of 1 gotten.
-                tempOne =index+1 //put position instead
+                tempOne =index+1 //put the variable position instead
 
                 //check if the new numberOfZeros is greater than the existing binaryGap if true make replace binaryGap variable with the numberOfZeros variable
                 if(binaryGap < numberOfZeros )
