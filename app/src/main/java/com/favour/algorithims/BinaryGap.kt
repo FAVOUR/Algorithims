@@ -1,7 +1,7 @@
 package com.favour.algorithims
 
 
-class BinaryGap {
+ class BinaryGap {
 
 
     fun startProgram(){
@@ -60,8 +60,11 @@ class BinaryGap {
         //Iterate through the binaryList
         binaryList.forEachIndexed { index, element ->
 
-            //Check if the number is equal to 1
-            if (element == ONE) {
+
+            if (tempOne == 0 && element == ONE){
+
+                tempOne =index+1
+            }else if (element == ONE) {
 
                 //Added 1 to the index to make sure the position begins from 1
               var position =index+1
@@ -70,8 +73,9 @@ class BinaryGap {
                 //Inorder to get the number of Zeros  1 was added to tempOne 1 to include the last value (which will be 1) in the subtraction
                 val  numberOfZeros= position - (tempOne+1)
 
+
                 //Make the new position of tempOne be the last position of 1 gotten.
-                tempOne =index+1
+                tempOne =index+1 //put position instead
 
                 //check if the new numberOfZeros is greater than the existing binaryGap if true make replace binaryGap variable with the numberOfZeros variable
                 if(binaryGap < numberOfZeros )
