@@ -4,7 +4,7 @@
 
 1 . Pull the repo.
 
-2 . Go to the "App" Folder. 
+2 . Go to the "app" folder/package. 
 
 3 . Open the file named "Playground" and then to run click in the "Run" button on your IDE.
 
