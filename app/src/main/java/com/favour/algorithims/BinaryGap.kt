@@ -1,7 +1,9 @@
 package com.favour.algorithims
 
+import java.util.*
 
- class BinaryGap {
+
+class BinaryGap {
 
 
     fun startProgram(){
@@ -50,44 +52,100 @@ package com.favour.algorithims
         //Generate the binary equivalent for a given integer
         val integerToBinary = Integer.toBinaryString(N)
 
+        print(
+                "integerToBinary value  $integerToBinary \n\n"
+        )
+
+        print(
+                "integerToBinary size  ${integerToBinary.length} \n\n"
+        )
+
         //Convert the strings of binary numbers to a list
-        val binaryList = integerToBinary.split("","")
+//        val binaryList = integerToBinary.trim().split(' ')
+        val binaryList =  listOf(integerToBinary)
+
+
+
+        print(
+                "binaryList length  ${binaryList.size} \n\n"
+        )
+
+
 
         //Iterate through the binaryList
-        binaryList.forEachIndexed { index, element ->
 
 
-            if (tempOne == 0 && element == ONE){
+//         binaryList.forEachIndexed { index, element ->
+        integerToBinary.forEachIndexed { index, element ->
+             print(
+                     "Hello the  element  $element \n"
+             )
+                 print(
+                         "Index before first check = $index \n The element is = $element \n \n "
+                 )
+                 if (tempOne == 0 && element == ONE) {
 
-                tempOne =index+1
-            }else if (element == ONE) {
+                     tempOne = index + 1
 
-                //Added 1 to the index to make sure the position begins from 1
-              var position =index+1
+                     print(
+                             "Index in first temp one  $index \n\n"
+                     )
 
+                     print(
+                             "TempOne now   $tempOne \n\n"
+                     )
 
-                //Inorder to get the number of Zeros  1 was added to tempOne 1 to include the last value (which will be 1) in the subtraction
-                val  numberOfZeros= position - (tempOne+1)
+                 } else if (element == ONE) {
 
+                     //Added 1 to the index to make sure the position begins from 1
+                     var position = index + 1
 
-                //Make the new position of tempOne be the last position of 1 gotten.
-                tempOne =index+1 //put the variable position instead
+                     print(
+                             "Position when next element is equals one  $position \n\n"
+                     )
 
-                //check if the new numberOfZeros is greater than the existing binaryGap if true make replace binaryGap variable with the numberOfZeros variable
-                if(binaryGap < numberOfZeros )
-                    binaryGap = numberOfZeros
-            }
+                     var newTemp1 = tempOne + 1
+                     //Inorder to get the number of Zeros  1 was added to tempOne 1 to include the last value (which will be 1) in the subtraction
+                     val numberOfZeros = position - (newTemp1)
 
-        }
+                     print(
+                             "newTemp1 when element is equals one   $newTemp1 \n\n"
+                     )
+                     print(
+                             "numberOfZeros when element is equals one  $numberOfZeros \n\n"
+                     )
+
+                     //Make the new position of tempOne be the last position of 1 gotten.
+                     tempOne = position //put the variable position instead
+                     print(
+                             "tempOne when element is equals  $tempOne \n\n"
+                     )
+                     //check if the new numberOfZeros is greater than the existing binaryGap if true make replace binaryGap variable with the numberOfZeros variable
+                     print(
+                             "binaryGap when element is equals  $binaryGap \n\n"
+                     )
+
+                     print(
+                             "numberOfZeros when element is equals  $numberOfZeros \n\n"
+                     )
+
+                     print(
+                             "binaryGap < numberOfZeros when element is equals  ${binaryGap < numberOfZeros} \n\n"
+                     )
+
+                     if (binaryGap < numberOfZeros)
+                         binaryGap = numberOfZeros
+                 }
+
+             }
 
 
         return binaryGap
-
-
     }
 
     companion object {
-         const val ONE :String  ="1"
+//         const val ONE :String  ="1"
+         const val ONE   ='1'
     }
 
 
