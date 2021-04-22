@@ -25,7 +25,7 @@ class BinaryGap {
                 print("Something went wrong... \n Please try again  ")
             }
 
-        } ?: print("Oh No.. \n Your input is Invalid, please try again")
+        } ?: print("Oh No.... \n Your input is Invalid, please try again")
     }
 
 
